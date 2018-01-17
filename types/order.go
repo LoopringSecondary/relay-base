@@ -52,3 +52,24 @@ type Order interface {
 	GenerateAndSetSignature() error
 	ValidateSignatureValues() bool
 }
+
+type OrderState interface {
+	Order
+	SetUpdatedBlock(num *big.Int)
+	GetUpdatedBlock() *big.Int
+	SetDealtAmountS(amount *big.Int)
+	GetDealtAmountS() *big.Int
+	SetDealtAmountB(amount *big.Int)
+	GetDealtAmountB() *big.Int
+	SetSplitAmountS(amount *big.Int)
+	GetSplitAmountS() *big.Int
+	SetSplitAmountB(amount *big.Int)
+	GetSplitAmountB() *big.Int
+	SetCancelledAmountS(amount *big.Int)
+	GetCancelledAmountS() *big.Int
+	SetCancelledAmountB(amount *big.Int)
+	GetCancelledAmountB() *big.Int
+	SetStatus(status OrderStatus)
+	GetStatus() OrderStatus
+	BroadcastTime() int
+}
